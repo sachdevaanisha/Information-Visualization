@@ -1,0 +1,41 @@
+SELECT users.id, geo_data.country_name as location FROM `bigquery-public-data.census_bureau_international.country_names_area` AS geo_data, `bigquery-public-data.stackoverflow.users` AS users where users.location is not null AND users.location LIKE CONCAT('%', geo_data.country_name, '%') and location not like  '%new delhi%' and location not like  '%delhi%' and location not like  '%pune%' and location not like  '%pradesh%' and location not like  '%Mirpur%' and location not like  '%Patna%' and location not like  '%Bangalore%' and location not like  '%Surat%' and location not like  '%Gujarat%' and location not like  '%Azad%' and location not like  '%Delhi%' and location not like  '%Chandigarh%' and location not like  '%Chennai%' and location not like  '%Mumbai%' and location not like  '%Deutschland%' and location not like  '%HCM%' and location not like  '%Hà Nội%' and location not like  '%Việt Nam%' and location not like  '%Hồ Chí Minh%' and location not like  '%România%' and location not like  '%México%' and location not like  '%Česká republika%' and location not like  '%Austrália%' and location not like  '%Polska%' and location not like  '%Espana%' and location not like  '%España%' and location not like  'Saudi' and location not like  '%Dubai%' and location not like  'USA' and location not like  '%United States%' and location not like  'UK' and location not like  '%United Kingdom%' and location not like  '%Italia%' and location not like  '%Tunisie%' and location not like  '%Brazil%' and location not like  '%Brasil%' and location not like  '%Belgie%' and location not like  '%Belgique%' and location not like  '%Amsterdam%' and location not like  '%Nederland%' and location not like  '%Türkiye%' and location not like  '%Danmark%' and location not like  '%Algerie%'
+
+SELECT b.id,"USA" FROM `bigquery-public-data.geo_us_boundaries.adjacent_states` a,`bigquery-public-data.stackoverflow.users` b where b.location is not null and location like concat('%',a.state_name,'%') and location not like  '%new delhi%' and location not like  '%delhi%' and location not like  '%pune%' and location not like  '%pradesh%' and location not like  '%Mirpur%' and location not like  '%Patna%' and location not like  '%Bangalore%' and location not like  '%Surat%' and location not like  '%Gujarat%' and location not like  '%Azad%' and location not like  '%Delhi%' and location not like  '%Chandigarh%' and location not like  '%Chennai%' and location not like  '%Mumbai%' and location not like  '%Deutschland%' and location not like  '%HCM%' and location not like  '%Hà Nội%' and location not like  '%Việt Nam%' and location not like  '%Hồ Chí Minh%' and location not like  '%România%' and location not like  '%México%' and location not like  '%Česká republika%' and location not like  '%Austrália%' and location not like  '%Polska%' and location not like  '%Espana%' and location not like  '%España%' and location not like  'Saudi' and location not like  '%Dubai%' and location not like  'USA' and location not like  '%United States%' and location not like  'UK' and location not like  '%United Kingdom%' and location not like  '%Italia%' and location not like  '%Tunisie%' and location not like  '%Brazil%' and location not like  '%Brasil%' and location not like  '%Belgie%' and location not like  '%Belgique%' and location not like  '%Amsterdam%' and location not like  '%Nederland%' and location not like  '%Türkiye%' and location not like  '%Danmark%' and location not like  '%Algerie%' and b.id not in (SELECT users.id FROM `bigquery-public-data.census_bureau_international.country_names_area` AS geo_data, `bigquery-public-data.stackoverflow.users` AS users where users.location is not null AND users.location LIKE CONCAT('%', geo_data.country_name, '%'))
+
+select id,location from `bigquery-public-data.stackoverflow.users` where location is not  null and id not in (SELECT b.id FROM `bigquery-public-data.geo_us_boundaries.adjacent_states` a,`bigquery-public-data.stackoverflow.users` b where b.location is not null and location like concat('%',a.state_name,'%')) and location not like  '%new delhi%' and location not like  '%delhi%' and location not like  '%pune%' and location not like  '%pradesh%' and location not like  '%Mirpur%' and location not like  '%Patna%' and location not like  '%Bangalore%' and location not like  '%Surat%' and location not like  '%Gujarat%' and location not like  '%Azad%' and location not like  '%Delhi%' and location not like  '%Chandigarh%' and location not like  '%Chennai%' and location not like  '%Mumbai%' and location not like  '%Deutschland%' and location not like  '%HCM%' and location not like  '%Hà Nội%' and location not like  '%Việt Nam%' and location not like  '%Hồ Chí Minh%' and location not like  '%România%' and location not like  '%México%' and location not like  '%Česká republika%' and location not like  '%Austrália%' and location not like  '%Polska%' and location not like  '%Espana%' and location not like  '%España%' and location not like  'Saudi' and location not like  '%Dubai%' and location not like  'USA' and location not like  '%United States%' and location not like  'UK' and location not like  '%United Kingdom%' and location not like  '%Italia%' and location not like  '%Tunisie%' and location not like  '%Brazil%' and location not like  '%Brasil%' and location not like  '%Belgie%' and location not like  '%Belgique%' and location not like  '%Amsterdam%' and location not like  '%Nederland%' and location not like  '%Türkiye%' and location not like  '%Danmark%' and location not like  '%Algerie%' and id not in (SELECT users.id FROM `bigquery-public-data.census_bureau_international.country_names_area` AS geo_data, `bigquery-public-data.stackoverflow.users` AS users where users.location is not null AND users.location LIKE CONCAT('%', geo_data.country_name, '%'))
+
+
+select id,'INDIA' from `bigquery-public-data.stackoverflow.users` where location like '%new delhi%' or location like '%delhi%' or location like '%pune%' or location like '%pradesh%' or location like '%Mirpur%' or location like '%Patna%' or location like '%Bangalore%' or location like '%Surat%' or location like '%Gujarat%' or location like '%Azad%' or location like '%Delhi%' or location like '%Chandigarh%' or location like '%Chennai%' or location like '%Mumbai%' or location like '%Deutschland%'
+
+select id,'Viet Nam' from `bigquery-public-data.stackoverflow.users` where location like '%HCM%' or location like '%Hà Nội%' or location like '%Việt Nam%' or location like '%Hồ Chí Minh%'
+
+select id,'Romania' from `bigquery-public-data.stackoverflow.users` where location like '%România%'
+
+select id,'Mexico' from `bigquery-public-data.stackoverflow.users` where location like '%México%'
+
+select id,'Czechia' from `bigquery-public-data.stackoverflow.users` where location like '%Česká republika%'
+
+select id,'Australia' from `bigquery-public-data.stackoverflow.users` where location like '%Austrália%'
+
+
+select id,'Poland' from `bigquery-public-data.stackoverflow.users` where location like '%Polska%'
+
+select id,'Spain' from `bigquery-public-data.stackoverflow.users` where location like '%Espana%' or location like '%España%'
+
+select id,'United Arab Emirates' from `bigquery-public-data.stackoverflow.users` where location like 'Saudi' or location like '%Dubai%'
+
+select id,'USA' from `bigquery-public-data.stackoverflow.users` where location like 'USA' or location like '%United States%'
+
+select id,'United Kingdom' from `bigquery-public-data.stackoverflow.users` where location like 'UK' or location like '%United Kingdom%'
+
+select id,'Italy' from `bigquery-public-data.stackoverflow.users` where location like '%Italia%'
+
+select id,'Tunisia' from `bigquery-public-data.stackoverflow.users` where location like '%Tunisie%'
+
+select id,'Brazil' from `bigquery-public-data.stackoverflow.users` where location like '%Brazil%' or location like '%Brasil%'
+
+select id,'Belgium' from `bigquery-public-data.stackoverflow.users` where location like '%Belgie%' or location like '%Belgique%'
+
+select id,'Netherlands' from `bigquery-public-data.stackoverflow.users` where location like '%Amsterdam%' or location like '%Nederland%'
+
+select id,'Turkey' from `bigquery-public-data.stackoverflow.users` where location like '%Türkiye%'
